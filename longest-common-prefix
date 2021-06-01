@@ -1,0 +1,38 @@
+/**
+ * @param {string[]} strs
+ * @return {string}
+ */
+var longestCommonPrefix = function(strs) {
+    //set result with first string
+    let result = strs[0];
+
+    //keep track of shortest string
+    let shortest = strs[0].length;
+    //loop through strings
+    for (let i = 1; i < strs.length; i++) {
+        const str = strs[i];
+        if(!str) return "";
+
+        for (let j = 0; j < str.length; j++) {
+            if(str.length < shortest) shortest = str.length;
+            if(str == "") shortest = 0;
+            //if letters dont match, set spliced string as result
+            if(result[j] != str[j]) {
+
+                result = result.substring(0, j);
+            }
+        }
+    }
+
+    if(shortest === 0) return '';
+
+    return result.substring(0, shortest);
+    
+};
+
+// longestCommonPrefix(input)
+console.log("expect 'fl'", longestCommonPrefix(["flower","flow","flight"]));
+// console.log("expect ''", longestCommonPrefix(["abab","aba",""]));
+// console.log("expect ''", longestCommonPrefix(["a","b"]));
+console.log("expect ''", longestCommonPrefix(["","b"]));
+console.log("expect ''", longestCommonPrefix(["abab","aba",""]));
