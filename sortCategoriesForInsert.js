@@ -1,5 +1,5 @@
 
- module.exports = function sortCategoriesForInsert (arr) {
+function sortCategoriesForInsert (arr) {
     let obj = {};
     let items = {}
     let result = [];
@@ -51,17 +51,13 @@
         for (let t = 0; t < result.length; t++) {
             if(result[t].parent_id === 0) result[t].parent_id = null
         }
-
-        
-
     }
-    // console.log("result", result)
     return JSON.stringify(result,null, '\t');
   }
 
   //TIME / SPACE COMPLEXITY
-  //O(2n)
-  //2n storage
+  //O(3n)
+  //3n storage
   
   console.log(sortCategoriesForInsert([
     {
