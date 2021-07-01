@@ -1,5 +1,5 @@
 
-function sortCategoriesForInsert (arr) {
+module.exports = function sortCategoriesForInsert (arr) {
     let obj = {};
     let items = {}
     let result = [];
@@ -52,6 +52,7 @@ function sortCategoriesForInsert (arr) {
             if(result[t].parent_id === 0) result[t].parent_id = null
         }
     }
+    //return proper JSON output
     return JSON.stringify(result,null, '\t');
   }
 
